@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sundrop Impact — Cost Model</title>
+<link rel="icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;%E2%98%80%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  * { font-family: 'Inter', sans-serif !important; -webkit-font-smoothing: antialiased; }
+  html { scroll-behavior: smooth; }
+  body { background-color: #0a0f1d; color: #e2e8f0; }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: #0f172a; }
+  ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+  .glass { background: rgba(15,23,42,0.6); backdrop-filter: blur(16px); border: 1px solid rgba(30,41,59,0.5); }
+  .glass-strong { background: rgba(10,15,29,0.85); backdrop-filter: blur(20px); }
+  .p1-text { color:#22d3ee; }
+  .p2-text { color:#fbbf24; }
+  .p1-soft { background:rgba(34,211,238,0.07); }
+  .p2-soft { background:rgba(245,158,11,0.07); }
+  .eyebrow { letter-spacing:0.22em; }
+  input, select { background:#0f172a; border:1px solid #334155; color:#e2e8f0; border-radius:10px; padding:7px 10px; font-weight:600; }
+  input:focus, select:focus { outline:none; border-color:#fbbf24; }
+  input[type=number] { width:78px; }
+  .btn { border-radius:9999px; font-weight:700; transition:background-color .2s, border-color .2s; }
+</style>
+</head>
+<body class="min-h-screen pb-24">
+
+<!-- HEADER -->
+<header class="sticky top-0 z-50 glass-strong border-b border-slate-800/60">
+  <div class="max-w-5xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between gap-3">
+    <div class="flex items-center gap-2">
+      <span class="text-2xl">☀️</span>
+      <span class="font-extrabold tracking-tight text-white text-lg">SUNDROP</span>
+      <span class="font-extrabold tracking-tight text-amber-500 text-lg hidden sm:inline">IMPACT</span>
+      <span class="font-extrabold tracking-tight text-red-500 text-lg">(DRAFT)</span>
+    </div>
+    <a href="index.html" class="text-sm font-bold px-4 py-2 rounded-full bg-cyan-500/10 p1-text hover:bg-cyan-500/20 transition-colors border border-cyan-500/30">← Employee view</a>
+  </div>
+</header>
+
+<main class="max-w-5xl mx-auto px-4 md:px-6">
+
+  <!-- HERO -->
+  <div class="pt-10 pb-6 md:pt-14 md:pb-8">
+    <div class="eyebrow text-xs uppercase text-amber-500 font-bold mb-4">Board view · Budget model</div>
+    <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-[1.05]">What this costs Sundrop</h1>
+  </div>
+
+  <!-- LIVE HEADLINE STATS -->
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-3 pb-10">
+    <div class="glass rounded-3xl p-5">
+      <div class="text-[10px] tracking-widest uppercase text-slate-500 mb-2">Sundrop pays / month</div>
+      <div class="text-3xl font-extrabold p1-text" id="sumMo">$685</div>
+    </div>
+    <div class="glass rounded-3xl p-5">
+      <div class="text-[10px] tracking-widest uppercase text-slate-500 mb-2">Sundrop pays / year</div>
+      <div class="text-3xl font-extrabold text-white" id="sumYr">$8,225</div>
+    </div>
+    <div class="glass rounded-3xl p-5">
+      <div class="text-[10px] tracking-widest uppercase text-slate-500 mb-2">Employees pay / month</div>
+      <div class="text-3xl font-extrabold p2-text" id="empMo">$169</div>
+    </div>
+    <div class="glass rounded-3xl p-5">
+      <div class="text-[10px] tracking-widest uppercase text-slate-500 mb-2">Enrolled</div>
+      <div class="text-3xl font-extrabold text-amber-500"><span id="enrolled">2</span></div>
+    </div>
+  </div>
+
+  <!-- CALCULATOR -->
+  <section class="pb-10">
+    <h2 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight mb-2">Model your own scenario</h2>
+    <p class="text-sm text-slate-400 mb-5 max-w-3xl font-light">Add an employee for everyone you expect to enroll. Set each person's age and which plan they'd pick. Totals update live.</p>
+
+    <div class="glass rounded-3xl overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm min-w-[680px]">
+          <thead>
+            <tr class="text-xs tracking-widest uppercase text-slate-500 border-b border-slate-800">
+              <th class="text-left font-semibold px-5 py-4">#</th>
+              <th class="text-left font-semibold px-3 py-4">Age</th>
+              <th class="text-left font-semibold px-3 py-4">Plan choice</th>
+              <th class="text-right font-semibold px-3 py-4">Plan total / mo</th>
+              <th class="text-right font-semibold px-3 py-4 p1-text">Sundrop pays / mo</th>
+              <th class="text-right font-semibold px-3 py-4 p2-text">Employee pays / mo</th>
+              <th class="px-3 py-4"></th>
+            </tr>
+          </thead>
+          <tbody id="rows" class="text-slate-200"></tbody>
+          <tfoot>
+            <tr class="bg-slate-950/60 text-white border-t border-slate-800">
+              <td class="px-5 py-4 font-bold" colspan="4">Totals</td>
+              <td class="text-right px-3 py-4 p1-text font-extrabold text-lg" id="tSundrop">$685</td>
+              <td class="text-right px-3 py-4 p2-text font-extrabold text-lg" id="tEmp">$169</td>
+              <td class="px-3 py-4"></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div class="px-5 py-4 border-t border-slate-800/60 flex flex-wrap items-center gap-3">
+        <button id="addBtn" class="btn bg-amber-500/15 p2-text border border-amber-500/40 px-4 py-2 hover:bg-amber-500/25">+ Add employee</button>
+        <button id="resetBtn" class="btn bg-slate-800/60 text-slate-300 border border-slate-700 px-4 py-2 hover:bg-slate-700/60">Reset to expected (2)</button>
+        <span class="text-xs text-slate-500 ml-auto">Annual Sundrop cost: <span class="text-white font-bold" id="footYr">$8,225</span></span>
+      </div>
+    </div>
+
+    <p class="text-xs text-slate-500 mt-4 max-w-3xl">
+      <span class="text-slate-400 font-semibold">How it's computed:</span> Sundrop's share = the Free Basic (HSA POS Bronze B80) premium at the employee's age — paid for both plans.
+      Gold-pickers pay the difference up to the HMO Gold G121 premium. Rates are the 8/1/2026 age-banded premiums (incl. taxes/fees), employee-only. Dependents (spouse/kids) are the employee's cost and aren't shown here.
+    </p>
+  </section>
+
+  <!-- NOTE: flat-rate alternative -->
+  <section class="pb-10">
+    <div class="glass rounded-3xl p-6 md:p-7">
+      <div class="text-amber-500 font-bold text-lg mb-2">One decision to make</div>
+      <p class="text-base text-slate-300 leading-relaxed font-light">
+        Because premiums are <span class="text-white">age-rated</span>, the Gold buy-up an employee pays rises with age (~$136/mo at 23 → ~$169 at 37 → ~$304 at 55).
+        This model has <span class="text-white">Sundrop pay 100% of Basic at each age</span>, so Sundrop's cost stays predictable and the employee covers the gap.
+        Alternatively Sundrop could charge a <span class="text-white">flat Gold price</span> for everyone and absorb the age difference — fairer-feeling for staff, but Sundrop takes on more for older employees.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="fixed bottom-0 left-0 right-0 z-40 glass-strong border-t border-slate-800/60">
+  <div class="max-w-5xl mx-auto px-4 md:px-6 py-2.5 flex items-center justify-between text-[10px] tracking-widest uppercase text-slate-500">
+    <span>Sundrop Impact · Board budget model · DRAFT</span>
+    <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-teal-400 inline-block"></span> Estimates · Confirm before enrolling</span>
+  </div>
+</footer>
+
+<script>
+  // 8/1/2026 age-banded monthly premiums (incl. taxes & fees), employee-only.
+  var BRONZE = {15:255.13,16:263.09,17:271.06,18:279.63,19:288.21,20:297.09,21:306.28,22:306.28,23:306.28,24:306.28,25:307.51,26:313.63,27:320.98,28:332.93,29:342.73,30:347.63,31:354.98,32:362.33,33:366.92,34:371.82,35:374.27,36:376.72,37:379.17,38:381.62,39:386.53,40:391.43,41:398.78,42:405.82,43:415.62,44:427.87,45:442.27,46:459.42,47:478.72,48:500.77,49:522.51,50:547.02,51:571.21,52:597.86,53:624.81,54:653.91,55:683.00,56:714.55,57:746.40,58:780.40,59:797.25,60:831.24,61:860.65,62:879.94,63:904.14,64:918.84};
+  var GOLD = {15:368.54,16:380.05,17:391.55,18:403.94,19:416.33,20:429.16,21:442.43,22:442.43,23:442.43,24:442.43,25:444.20,26:453.05,27:463.67,28:480.92,29:495.08,30:502.16,31:512.78,32:523.39,33:530.03,34:537.11,35:540.65,36:544.19,37:547.73,38:551.27,39:558.35,40:565.43,41:576.04,42:586.22,43:600.38,44:618.07,45:638.87,46:663.65,47:691.52,48:723.37,49:754.79,50:790.18,51:825.13,52:863.62,53:902.56,54:944.59,55:986.62,56:1032.19,57:1078.20,58:1127.31,59:1151.65,60:1200.76,61:1243.23,62:1271.10,63:1306.05,64:1327.29};
+
+  function rate(table, age){ var a = Math.max(15, Math.min(64, age||0)); return table[a] || 0; }
+  function money(n){ return '$' + Math.round(n).toLocaleString('en-US'); }
+
+  var DEFAULTS = [ {age:23, plan:'free'}, {age:37, plan:'gold'} ];
+  var rowsData = DEFAULTS.map(function(r){ return {age:r.age, plan:r.plan}; });
+
+  var tbody = document.getElementById('rows');
+
+  function render(){
+    tbody.innerHTML = '';
+    rowsData.forEach(function(r, i){
+      var tr = document.createElement('tr');
+      tr.className = 'border-b border-slate-800/50';
+      var bronze = rate(BRONZE, r.age);
+      var gold = rate(GOLD, r.age);
+      var planTotal = r.plan === 'gold' ? gold : bronze;
+      var sundrop = bronze;
+      var employee = r.plan === 'gold' ? (gold - bronze) : 0;
+      tr.innerHTML =
+        '<td class="px-5 py-3 text-slate-500 font-semibold">' + (i+1) + '</td>' +
+        '<td class="px-3 py-3"><input type="number" min="18" max="64" value="' + r.age + '" data-i="' + i + '" data-k="age"></td>' +
+        '<td class="px-3 py-3"><select data-i="' + i + '" data-k="plan">' +
+          '<option value="free"' + (r.plan==='free'?' selected':'') + '>Free Basic</option>' +
+          '<option value="gold"' + (r.plan==='gold'?' selected':'') + '>Gold</option>' +
+        '</select></td>' +
+        '<td class="text-right px-3 py-3 text-slate-300">' + money(planTotal) + '</td>' +
+        '<td class="text-right px-3 py-3 p1-soft p1-text font-semibold">' + money(sundrop) + '</td>' +
+        '<td class="text-right px-3 py-3 p2-soft ' + (employee>0?'p2-text font-semibold':'text-slate-500') + '">' + money(employee) + '</td>' +
+        '<td class="px-3 py-3 text-right"><button data-del="' + i + '" class="text-slate-500 hover:text-rose-400 font-bold text-lg leading-none px-2" title="Remove">×</button></td>';
+      tbody.appendChild(tr);
+    });
+    refreshComputed();
+  }
+
+  function refreshComputed(){
+    var trs = tbody.querySelectorAll('tr');
+    var sMo = 0, eMo = 0;
+    rowsData.forEach(function(r, i){
+      var bronze = rate(BRONZE, r.age), gold = rate(GOLD, r.age);
+      var planTotal = r.plan === 'gold' ? gold : bronze;
+      var employee = r.plan === 'gold' ? (gold - bronze) : 0;
+      sMo += bronze; eMo += employee;
+      if (trs[i]) {
+        var cells = trs[i].children;
+        cells[3].textContent = money(planTotal);
+        cells[4].textContent = money(bronze);
+        cells[5].textContent = money(employee);
+        cells[5].className = 'text-right px-3 py-3 p2-soft ' + (employee>0 ? 'p2-text font-semibold' : 'text-slate-500');
+      }
+    });
+    totals(sMo, eMo);
+  }
+
+  function totals(sMo, eMo){
+    document.getElementById('sumMo').textContent = money(sMo);
+    document.getElementById('sumYr').textContent = money(sMo*12);
+    document.getElementById('empMo').textContent = money(eMo);
+    document.getElementById('enrolled').textContent = rowsData.length;
+    document.getElementById('tSundrop').textContent = money(sMo);
+    document.getElementById('tEmp').textContent = money(eMo);
+    document.getElementById('footYr').textContent = money(sMo*12);
+  }
+
+  tbody.addEventListener('input', function(e){
+    var i = e.target.getAttribute('data-i'); var k = e.target.getAttribute('data-k');
+    if (i === null) return;
+    if (k === 'age') rowsData[i].age = parseInt(e.target.value, 10) || 0;
+    if (k === 'plan') rowsData[i].plan = e.target.value;
+    refreshComputed();
+  });
+  tbody.addEventListener('change', function(e){
+    var i = e.target.getAttribute('data-i'); var k = e.target.getAttribute('data-k');
+    if (i === null) return;
+    if (k === 'plan') { rowsData[i].plan = e.target.value; refreshComputed(); }
+  });
+  tbody.addEventListener('click', function(e){
+    var d = e.target.getAttribute('data-del');
+    if (d !== null) { rowsData.splice(parseInt(d,10),1); render(); }
+  });
+  document.getElementById('addBtn').addEventListener('click', function(){ rowsData.push({age:30, plan:'free'}); render(); });
+  document.getElementById('resetBtn').addEventListener('click', function(){ rowsData = DEFAULTS.map(function(r){ return {age:r.age, plan:r.plan}; }); render(); });
+
+  render();
+</script>
+</body>
+</html>
