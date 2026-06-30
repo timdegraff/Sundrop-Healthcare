@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sundrop Health Benefits 2026–2027</title>
+<link rel="icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;%E2%98%80%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  * { font-family: 'Inter', sans-serif !important; -webkit-font-smoothing: antialiased; }
+  html { scroll-behavior: smooth; }
+  body { background-color: #0a0f1d; color: #e2e8f0; }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: #0f172a; }
+  ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+
+  .glass { background: rgba(15,23,42,0.6); backdrop-filter: blur(16px); border: 1px solid rgba(30,41,59,0.5); }
+  .glass-strong { background: rgba(10,15,29,0.85); backdrop-filter: blur(20px); }
+
+  /* Plan 1 (Free, HSA POS Bronze B80) = cyan. Plan 2 (Gold) = gold/amber. */
+  .p1-text { color:#22d3ee; }
+  .p2-text { color:#fbbf24; }
+  .p1-soft { background:rgba(34,211,238,0.07); }
+  .p2-soft { background:rgba(245,158,11,0.07); }
+  .p1-ring { box-shadow: inset 0 2px 0 0 #22d3ee; }
+  .p2-ring { box-shadow: inset 0 2px 0 0 #f59e0b; }
+
+  section { scroll-margin-top: 96px; }
+  .eyebrow { letter-spacing:0.22em; }
+
+  .navlink { color:#64748b; transition: color .2s, background-color .2s; }
+  .navlink:hover { color:#e2e8f0; }
+  .navlink.active { color:#fff; background:#334155; box-shadow: inset 0 0 0 1px rgba(245,158,11,0.45); }
+
+  .card { transition: border-color .25s; }
+  .card:hover { border-color: rgba(71,85,105,0.7); }
+
+  @media print {
+    body { background:#fff !important; color:#000 !important; }
+    .no-print { display:none !important; }
+    .glass, .glass-strong { background:#fff !important; border:1px solid #eee !important; backdrop-filter:none !important; }
+  }
+</style>
+</head>
+<body class="min-h-screen pb-24">
+
+<div class="fixed top-0 left-0 h-[3px] z-[60] bg-gradient-to-r from-amber-500 to-rose-500 no-print" id="progress" style="width:0%"></div>
+
+<!-- ============== STICKY HEADER ============== -->
+<header class="sticky top-0 z-50 glass-strong border-b border-slate-800/60">
+  <div class="max-w-6xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between gap-3">
+    <a href="#top" class="flex items-center gap-2 shrink-0">
+      <span class="text-2xl">☀️</span>
+      <span class="font-extrabold tracking-tight text-white text-lg">SUNDROP</span>
+      <span class="font-extrabold tracking-tight text-amber-500 text-lg hidden sm:inline">BENEFITS</span>
+      <span class="font-extrabold tracking-tight text-red-500 text-lg">(DRAFT)</span>
+    </a>
+    <nav class="no-print hidden lg:flex items-center gap-1 text-[11px] font-semibold tracking-widest uppercase bg-slate-950/40 rounded-full p-1 border border-slate-800/60">
+      <a href="#basics" data-nav="basics" class="navlink px-4 py-2 rounded-full">Basics</a>
+      <a href="#plans"  data-nav="plans"  class="navlink px-4 py-2 rounded-full">The 2 Plans</a>
+      <a href="#exA"    data-nav="exA"    class="navlink px-4 py-2 rounded-full">Scenario A</a>
+      <a href="#exB"    data-nav="exB"    class="navlink px-4 py-2 rounded-full">Scenario B</a>
+    </nav>
+    <!-- Sundrop Impact (board view) -->
+    <div class="flex items-center gap-2 shrink-0 no-print">
+      <a href="impact.html" class="text-sm font-bold px-4 py-2 rounded-full bg-amber-500/10 p2-text hover:bg-amber-500/20 transition-colors border border-amber-500/30">Sundrop Impact →</a>
+    </div>
+  </div>
+</header>
+
+<main id="top" class="max-w-6xl mx-auto px-4 md:px-6">
+
+  <!-- ============== HERO ============== -->
+  <div class="pt-10 pb-6 md:pt-14 md:pb-8">
+    <div class="eyebrow text-xs uppercase text-amber-500 font-bold mb-4">Sundrop Benefits · 2026–2027</div>
+    <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight leading-[1.05] mb-5">Two plans.<br/>Free basic healthcare.</h1>
+    <p class="text-slate-400 text-lg md:text-xl max-w-2xl leading-relaxed font-light">
+      Choose between the <span class="p1-text font-medium">Free Basic Plan</span> or the employee-supported<br/>
+      <span class="p2-text font-medium">Gold Plan</span> for about <span class="text-white font-medium">$<span id="heroDelta">174</span> more per month</span> at your age.
+    </p>
+
+    <!-- Age personalizer -->
+    <div class="glass card rounded-2xl p-4 md:p-5 mt-7 max-w-xl">
+      <div class="flex items-center justify-between mb-3">
+        <label for="ageSlider" class="text-sm font-semibold text-slate-300">Personalize this page to your age</label>
+        <span class="text-2xl font-extrabold p2-text leading-none"><span id="ageVal">40</span><span class="text-sm text-slate-500 font-normal"> yrs</span></span>
+      </div>
+      <input id="ageSlider" type="range" min="18" max="64" value="40" step="1" class="age-range w-full">
+      <div class="flex justify-between text-[11px] text-slate-500 mt-2"><span>18</span><span>64+</span></div>
+      <p class="text-xs text-slate-500 mt-3">Your <span class="p1-text">Free Basic plan</span> is always <span class="text-white">$0</span> — at any age. This sets your <span class="p2-text">Gold</span> cost and the single-person example below.</p>
+    </div>
+    <style>
+      .age-range{ -webkit-appearance:none; appearance:none; height:6px; border-radius:9999px; background:#1f2937; outline:none; }
+      .age-range::-webkit-slider-thumb{ -webkit-appearance:none; appearance:none; width:22px; height:22px; border-radius:9999px; background:#f59e0b; cursor:pointer; border:3px solid #0b0f1a; box-shadow:0 0 0 4px rgba(245,158,11,0.18); }
+      .age-range::-moz-range-thumb{ width:20px; height:20px; border-radius:9999px; background:#f59e0b; cursor:pointer; border:3px solid #0b0f1a; }
+    </style>
+  </div>
+
+  <!-- ============== STAT STRIP ============== -->
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-3 pb-10">
+    <div class="glass card rounded-3xl p-5">
+      <div class="text-[10px] tracking-widest uppercase text-slate-500 mb-2">Plan 1 · Free</div>
+      <div class="text-3xl font-extrabold p1-text">$0<span class="text-sm text-slate-500 font-normal">/mo</span></div>
+    </div>
+    <div class="glass card rounded-3xl p-5">
+      <div class="text-[10px] tracking-widest uppercase text-slate-500 mb-2">Plan 2 · Gold</div>
+      <div class="text-3xl font-extrabold p2-text"><span id="statPrice">≈$155</span><span class="text-sm text-slate-500 font-normal">/mo</span></div>
+    </div>
+    <div class="glass card rounded-3xl p-5">
+      <div class="text-[10px] tracking-widest uppercase text-slate-500 mb-2">Sundrop pays</div>
+      <div class="text-3xl font-extrabold text-white">100%<span class="text-sm text-slate-500 font-normal"> of Plan 1</span></div>
+    </div>
+    <div class="glass card rounded-3xl p-5">
+      <div class="text-[10px] tracking-widest uppercase text-slate-500 mb-2">Starts</div>
+      <div class="text-3xl font-extrabold text-amber-500">Aug 1</div>
+    </div>
+  </div>
+
+  <!-- ============================================================= -->
+  <!-- BASICS -->
+  <!-- ============================================================= -->
+  <section id="basics" class="py-10 border-t border-slate-800/40">
+    <div class="eyebrow text-xs uppercase text-slate-500 font-bold mb-3">Start here</div>
+    <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-3">Health insurance in 60 seconds</h2>
+    <p class="text-slate-400 text-base md:text-lg mb-8 max-w-2xl font-light">New to all this? These are the only 5 words you need to know.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="glass card rounded-3xl p-6">
+        <div class="text-xl font-bold text-white mb-1.5">Premium</div>
+        <p class="text-sm text-slate-400 leading-relaxed">The monthly bill just to <span class="text-white">have</span> insurance. On Plan 1, <span class="p1-text font-semibold">Sundrop pays it — $0 from your paycheck.</span></p>
+      </div>
+      <div class="glass card rounded-3xl p-6">
+        <div class="text-xl font-bold text-white mb-1.5">Deductible</div>
+        <p class="text-sm text-slate-400 leading-relaxed">What you pay yourself <span class="text-white">first</span> each year before insurance starts covering big bills.</p>
+      </div>
+      <div class="glass card rounded-3xl p-6">
+        <div class="text-xl font-bold text-white mb-1.5">Copay</div>
+        <p class="text-sm text-slate-400 leading-relaxed">A small flat fee when you go — like <span class="text-white">$5</span> for a generic drug or <span class="text-white">$20</span> for a doctor visit.</p>
+      </div>
+      <div class="glass card rounded-3xl p-6">
+        <div class="text-xl font-bold text-white mb-1.5">Coinsurance</div>
+        <p class="text-sm text-slate-400 leading-relaxed">After your deductible, the <span class="text-white">share</span> of a big bill you still pay (like 20%). <span class="text-white">0%</span> means insurance covers it all.</p>
+      </div>
+      <div class="glass card rounded-3xl p-6">
+        <div class="text-xl font-bold text-white mb-1.5">Out-of-pocket max</div>
+        <p class="text-sm text-slate-400 leading-relaxed">The <span class="text-white">most</span> you could pay in a year. Hit it, and insurance covers <span class="text-white">100%</span> after.</p>
+      </div>
+      <div class="glass card rounded-3xl p-6 border border-amber-500/30">
+        <div class="text-xl font-bold text-amber-500 mb-1.5">How Sundrop pays</div>
+        <p class="text-sm text-slate-400 leading-relaxed">Sundrop puts the same dollars toward <span class="text-white">either</span> plan. Plan 1 = fully covered ($0). On Gold, you pay just the <span class="text-white">difference</span>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================= -->
+  <!-- THE 2 PLANS -->
+  <!-- ============================================================= -->
+  <section id="plans" class="py-10 border-t border-slate-800/40">
+    <div class="eyebrow text-xs uppercase text-slate-500 font-bold mb-3">Choose your plan</div>
+    <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-8">The two plans</h2>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5">
+      <!-- Plan 1 header -->
+      <div class="glass card rounded-3xl overflow-hidden p1-ring flex flex-col">
+        <div class="p-7 pb-6">
+          <div class="flex items-center justify-between mb-3">
+            <span class="eyebrow text-[11px] uppercase p1-text font-bold">Plan 1 · The free option</span>
+            <span class="text-[11px] px-3 py-1 rounded-full bg-cyan-500/10 p1-text font-semibold">Lowest cost</span>
+          </div>
+          <h3 class="text-2xl font-extrabold text-white mb-1">HSA POS Bronze B80</h3>
+          <div class="flex items-baseline gap-2">
+            <span class="text-4xl font-extrabold p1-text">$0</span>
+            <span class="text-slate-500">/ month — Sundrop covers it</span>
+          </div>
+        </div>
+        <div class="p1-soft px-7 py-5 border-t border-slate-800/60 mt-auto">
+          <span class="text-slate-500 text-sm">Best for: </span>
+          <span class="text-slate-200 text-sm">people who <span class="text-white font-semibold">expect low healthcare spending</span> — you rarely need the doctor and want $0 out of your paycheck.</span>
+        </div>
+      </div>
+
+      <!-- Plan 2 header (HMO Gold G121) -->
+      <div class="glass card rounded-3xl overflow-hidden p2-ring flex flex-col">
+        <div class="p-7 pb-6">
+          <div class="flex items-center justify-between mb-3">
+            <span class="eyebrow text-[11px] uppercase p2-text font-bold">Plan 2 · The upgrade</span>
+            <span class="text-[11px] px-3 py-1 rounded-full bg-amber-500/10 p2-text font-semibold">Better coverage</span>
+          </div>
+          <h3 class="text-2xl font-extrabold text-white mb-1">HMO Gold G121</h3>
+          <div class="flex items-baseline gap-2">
+            <span class="text-4xl font-extrabold p2-text">≈$<span id="cmpCardPrice">174</span></span>
+            <span class="text-slate-500">/ mo at age <span id="cmpCardAge">40</span> — set yours up top</span>
+          </div>
+        </div>
+        <div class="p2-soft px-7 py-5 border-t border-slate-800/60 mt-auto">
+          <span class="text-slate-500 text-sm">Best for: </span>
+          <span class="text-slate-200 text-sm">people who want <span class="text-white font-semibold">low, predictable costs</span> — small copays and 0% coinsurance, so a birth, ER trip, or surgery barely costs you.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Aligned, line-for-line comparison -->
+    <div class="glass rounded-3xl overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm min-w-[580px]">
+          <thead>
+            <tr class="text-xs tracking-widest uppercase text-slate-500 border-b border-slate-800">
+              <th class="text-left font-semibold px-6 py-4">What it costs you</th>
+              <th class="text-right font-bold px-4 py-4 p1-text">Plan 1 · Free<br><span class="text-[10px] text-slate-500 font-normal normal-case tracking-normal">HSA POS Bronze B80</span></th>
+              <th class="text-right font-bold px-6 py-4 p2-text">Plan 2 · Gold<br><span class="text-[10px] text-slate-500 font-normal normal-case tracking-normal">HMO Gold G121</span></th>
+            </tr>
+          </thead>
+          <tbody class="text-slate-300">
+            <tr class="border-b border-slate-800/50"><td class="px-6 py-3.5">You pay monthly</td><td class="text-right px-4 p1-soft p1-text font-semibold">$0</td><td class="text-right px-6 p2-soft p2-text font-semibold">≈$<span id="cmpYou">174</span> <span class="text-[11px] text-slate-500 font-normal">(age <span id="cmpAge">40</span>)</span></td></tr>
+            <tr class="border-b border-slate-800/50"><td class="px-6 py-3.5">Doctor visits <span class="text-slate-500">(regular / specialist)</span></td><td class="text-right px-4 p1-soft text-slate-400">Full price till ded.*</td><td class="text-right px-6 p2-soft">$30 / $70</td></tr>
+            <tr class="border-b border-slate-800/50"><td class="px-6 py-3.5">Prescriptions &amp; ER <span class="text-slate-500">(generic / brand / ER)</span></td><td class="text-right px-4 p1-soft text-slate-400">Full price till ded.*</td><td class="text-right px-6 p2-soft">$5–$40</td></tr>
+            <tr class="border-b border-slate-800/50"><td class="px-6 py-3.5">Deductible (you / family)</td><td class="text-right px-4 p1-soft font-semibold">$8,000 / $16,000</td><td class="text-right px-6 p2-soft font-semibold">$1,200 / $2,400</td></tr>
+            <tr class="border-b border-slate-800/50"><td class="px-6 py-3.5">Most you'd pay in a year (you / family)</td><td class="text-right px-4 p1-soft font-semibold">$8,000 / $16,000</td><td class="text-right px-6 p2-soft font-semibold">$9,100 / $18,200</td></tr>
+            <tr class="border-b border-slate-800/50"><td class="px-6 py-3.5">Coinsurance after deductible</td><td class="text-right px-4 p1-soft">0%</td><td class="text-right px-6 p2-soft">0%</td></tr>
+            <tr class="border-b border-slate-800/50"><td class="px-6 py-3.5">Hospital / surgery</td><td class="text-right px-4 p1-soft">Deductible, then $0</td><td class="text-right px-6 p2-soft">Deductible, then $0</td></tr>
+            <tr class="bg-slate-950/60"><td class="px-6 py-4 font-semibold text-white">Having a baby (hospital)</td><td class="text-right px-4 p1-text font-bold">~$8,000</td><td class="text-right px-6 p2-text font-bold">~$1,200</td></tr>
+            <tr><td class="px-6 py-3.5">Savings account (HSA)</td><td class="text-right px-4 p1-soft p1-text font-semibold">Yes</td><td class="text-right px-6 p2-soft text-slate-400">No</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="text-xs text-slate-500 mt-3">*Plan 1: you pay the discounted rate until the deductible, then 100% covered. Yearly check-ups, well-child visits, shots, and screenings are free on both plans.</p>
+  </section>
+
+  <!-- ============================================================= -->
+  <!-- EXAMPLE A -->
+  <!-- ============================================================= -->
+  <section id="exA" class="py-10 border-t border-slate-800/40">
+    <div class="eyebrow text-xs uppercase text-slate-500 font-bold mb-3">Scenario A</div>
+    <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-5">A healthy year, just you</h2>
+
+    <div class="glass rounded-3xl p-6 md:p-7 mb-6">
+      <p class="text-base md:text-lg text-slate-300 leading-relaxed font-light">
+        Say it's a <span class="text-white font-semibold">healthy year</span> and you're on <span class="text-white font-semibold">single coverage</span> — just you. All you use:
+        a free yearly check-up, one bad cold (1 doctor visit), and <span class="text-white">2 generic prescriptions</span>. No surgeries, no ER, no specialists.
+      </p>
+    </div>
+
+    <h3 class="text-xl md:text-2xl font-bold text-white mb-4">What you pay, all year</h3>
+    <div class="glass rounded-3xl overflow-hidden mb-3">
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm min-w-[560px]">
+          <thead>
+            <tr class="text-xs tracking-widest uppercase text-slate-500 border-b border-slate-800">
+              <th class="text-left font-semibold px-6 py-4">What happens</th>
+              <th class="text-right font-bold px-4 py-4 p1-text">Plan 1 · Free<br><span class="text-[10px] text-slate-500 font-normal normal-case tracking-normal">HSA POS Bronze B80</span></th>
+              <th class="text-right font-bold px-6 py-4 p2-text">Plan 2 · Gold<br><span class="text-[10px] text-slate-500 font-normal normal-case tracking-normal" id="aP2Name">HMO Gold G121</span></th>
+            </tr>
+          </thead>
+          <tbody class="text-slate-300">
+            <tr class="border-b border-slate-800/50"><td class="px-6 py-3.5">Monthly premium (you)</td><td class="text-right px-4 p1-soft p1-text font-semibold">$0</td><td class="text-right px-6 p2-soft" id="aPremMo">~$155/mo</td></tr>
+            <tr class="border-b border-slate-800/50"><td class="px-6 py-3.5">Yearly check-up</td><td class="text-right px-4 text-emerald-400 font-semibold">Free</td><td class="text-right px-6 text-emerald-400 font-semibold">Free</td></tr>
+            <tr class="border-b border-slate-800/50"><td class="px-6 py-3.5">1 sick visit (bad cold)</td><td class="text-right px-4 p1-soft">~$140</td><td class="text-right px-6 p2-soft" id="aSick">$30</td></tr>
+            <tr class="border-b border-slate-800/50"><td class="px-6 py-3.5">2 generic prescriptions</td><td class="text-right px-4 p1-soft">~$36</td><td class="text-right px-6 p2-soft" id="aGen">$10</td></tr>
+            <tr class="border-b border-slate-800/50"><td class="px-6 py-3.5 text-slate-400">Premium for the year</td><td class="text-right px-4 text-slate-400">$0</td><td class="text-right px-6 text-slate-400" id="aPremYr">~$1,854</td></tr>
+            <tr class="bg-slate-950/60 text-white"><td class="px-6 py-4 font-bold text-base">Total you pay this year</td><td class="text-right px-4 p1-text font-extrabold text-xl">~$176</td><td class="text-right px-6 p2-text font-extrabold text-xl" id="aTotal">~$1,894</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================= -->
+  <!-- EXAMPLE B -->
+  <!-- ============================================================= -->
+  <section id="exB" class="py-10 border-t border-slate-800/40">
+    <div class="eyebrow text-xs uppercase text-slate-500 font-bold mb-3">Scenario B</div>
+    <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-5">A bigger year, with family</h2>
+
+    <div class="glass rounded-3xl p-6 md:p-7 mb-6">
+      <p class="text-base md:text-lg text-slate-300 leading-relaxed font-light">
+        Now say you cover a <span class="text-white font-semibold">spouse and two kids</span>, and it's a <span class="text-white font-semibold">busy medical year</span>:
+        a <span class="text-white">hospital birth</span>, one <span class="text-white">ER trip</span> for a kid, <span class="text-white">4 children's visits</span>, a couple of grown-up visits, and several prescriptions.
+      </p>
+      <p class="text-sm text-slate-400 mt-3 leading-relaxed">Remember: <span class="p1-text font-semibold">your own coverage is still free</span> on Plan 1. The big numbers below come from <span class="text-white">covering your whole family</span> — adding a spouse and kids is paid by you, at the per-person rate, on <span class="text-white">either</span> plan. <span class="text-slate-500">This family example uses a ~30-year-old; the age slider up top doesn't change it, since your spouse and kids are priced at their own ages.</span></p>
+    </div>
+
+    <h3 class="text-xl md:text-2xl font-bold text-white mb-4">What the family pays at the doctor &amp; hospital</h3>
+    <div class="glass rounded-3xl overflow-hidden mb-3">
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm min-w-[600px]">
+          <thead>
+            <tr class="text-xs tracking-widest uppercase text-slate-500 border-b border-slate-800">
+              <th class="text-left font-semibold px-6 py-4">What happens</th>
+              <th class="text-right font-bold px-4 py-4 p1-text">Plan 1 · Free<br><span class="text-[10px] text-slate-500 font-normal normal-case tracking-normal">HSA POS Bronze B80</span></th>
+              <th class="text-right font-bold px-6 py-4 p2-text">Plan 2 · Gold<br><span class="text-[10px] text-slate-500 font-normal normal-case tracking-normal" id="bP2Name">HMO Gold G121</span></th>
+            </tr>
+          </thead>
+          <tbody class="text-slate-300">
+            <tr class="border-b border-slate-800/50"><td class="px-6 py-3.5">Having the baby (hospital)</td><td class="text-right px-4 p1-soft font-semibold">$8,000</td><td class="text-right px-6 p2-soft font-semibold" id="bBirth">~$1,200</td></tr>
+            <tr class="border-b border-slate-800/50"><td class="px-6 py-3.5">Newborn care</td><td class="text-right px-4 text-emerald-400">Included</td><td class="text-right px-6 text-emerald-400">Included</td></tr>
+            <tr class="border-b border-slate-800/50"><td class="px-6 py-3.5">1 ER trip (child)</td><td class="text-right px-4 p1-soft">~$2,000</td><td class="text-right px-6 p2-soft" id="bEr">$40</td></tr>
+            <tr class="border-b border-slate-800/50"><td class="px-6 py-3.5">4 children's doctor visits</td><td class="text-right px-4 p1-soft">~$560</td><td class="text-right px-6 p2-soft" id="bKid">$120</td></tr>
+            <tr class="border-b border-slate-800/50"><td class="px-6 py-3.5">2 adult doctor visits</td><td class="text-right px-4 p1-soft">~$280</td><td class="text-right px-6 p2-soft" id="bAdult">$60</td></tr>
+            <tr class="border-b border-slate-800/50"><td class="px-6 py-3.5">1 specialist visit</td><td class="text-right px-4 p1-soft">~$250</td><td class="text-right px-6 p2-soft" id="bSpec">$70</td></tr>
+            <tr class="border-b border-slate-800/50"><td class="px-6 py-3.5">8 generic + 2 brand drugs</td><td class="text-right px-4 p1-soft">~$744</td><td class="text-right px-6 p2-soft" id="bMeds">$120</td></tr>
+            <tr class="bg-slate-950/60 text-white"><td class="px-6 py-4 font-bold text-base">Doctor/hospital costs this year</td><td class="text-right px-4 p1-text font-extrabold text-xl">~$11,834</td><td class="text-right px-6 p2-text font-extrabold text-xl" id="bCare">~$1,610</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="text-xs text-slate-500 mb-8">The baby blows past Plan 1's deductible. On Gold G121, the hospital birth runs through its low <span class="text-slate-300">$1,200 deductible</span> and then <span class="text-slate-300">0% coinsurance</span> — so even a C-section or complications stay near $1,200, and ER/visits are small copays. Estimates of negotiated prices.</p>
+
+    <!-- All-in -->
+    <h3 class="text-xl md:text-2xl font-bold text-white mb-2">The all-in cost — premium <span class="text-slate-500 font-normal">plus</span> care</h3>
+    <p class="text-sm text-slate-400 mb-4 max-w-3xl font-light">If you cover your whole family on one plan, here's the total for a big year:</p>
+    <div class="glass rounded-3xl overflow-hidden mb-3">
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm min-w-[600px]">
+          <thead>
+            <tr class="text-xs tracking-widest uppercase text-slate-500 border-b border-slate-800">
+              <th class="text-left font-semibold px-6 py-4">Whole family on…</th>
+              <th class="text-right font-semibold px-4 py-4">Premium (you + family)</th>
+              <th class="text-right font-semibold px-4 py-4">Care costs</th>
+              <th class="text-right font-bold px-6 py-4">All-in / year</th>
+            </tr>
+          </thead>
+          <tbody class="text-slate-300">
+            <tr class="border-b border-slate-800/50"><td class="px-6 py-4"><span class="p1-text font-semibold">Plan 1 · Free Bronze</span></td><td class="text-right px-4">~$9,795</td><td class="text-right px-4">~$11,834</td><td class="text-right px-6 font-bold text-rose-400 text-base">~$21,629</td></tr>
+            <tr class="bg-slate-950/40"><td class="px-6 py-4"><span class="p2-text font-semibold">Plan 2 · Gold G121</span></td><td class="text-right px-4" id="allPrem">~$16,003</td><td class="text-right px-4" id="allCare">~$1,610</td><td class="text-right px-6 font-extrabold text-emerald-400 text-base" id="allIn">~$17,613</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="text-xs text-slate-500 mb-8">Sundrop covers <span class="text-slate-300">your own premium only</span>; adding a spouse + 2 kids is your cost on either plan. In this birth year, Gold saves the family roughly <span class="text-white" id="savings">~$4,000</span> versus the free Bronze plan — because Gold's small copays and 0% coinsurance offset its higher premium.</p>
+
+    <!-- Family facts (neutral) -->
+    <div class="glass rounded-3xl p-6 md:p-8">
+      <div class="eyebrow text-xs uppercase text-slate-500 font-bold mb-4">Good to know — for families</div>
+      <ul class="space-y-3.5 text-base text-slate-300">
+        <li class="flex gap-3"><span class="p1-text">•</span><span>Your <span class="text-white font-semibold">kids</span> may qualify for free or low-cost Michigan coverage (Medicaid / MIChild), depending on household income.</span></li>
+        <li class="flex gap-3"><span class="p1-text">•</span><span>Your <span class="text-white font-semibold">spouse</span> may be able to buy a discounted Obamacare plan (the old "family glitch" was fixed in 2023).</span></li>
+        <li class="flex gap-3"><span class="p1-text">•</span><span>On <span class="p2-text font-semibold">Gold G121</span>, a hospital birth runs through its $1,200 deductible with 0% coinsurance after. On the <span class="p1-text font-semibold">free Bronze plan</span> it runs to the $8,000 deductible.</span></li>
+      </ul>
+      <p class="text-xs text-slate-500 mt-5">Every family is different — confirm eligibility at HealthCare.gov or Michigan's MI Bridges. Figures use 2026 guidelines and are estimates.</p>
+    </div>
+  </section>
+
+  <!-- ============== CLOSING ============== -->
+  <section class="py-10 border-t border-slate-800/40">
+    <div class="glass rounded-3xl p-7 md:p-9">
+      <div class="eyebrow text-xs uppercase text-slate-500 font-bold mb-3">In short</div>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-4">Two plans. Your choice.</h2>
+      <p class="text-lg text-slate-300 leading-relaxed max-w-3xl font-light">
+        The <span class="p1-text font-semibold">free Bronze plan</span> is $0 to you, with a higher deductible.
+        The <span class="p2-text font-semibold">Gold plan</span> costs a bit more each month but adds small copays and a much lower deductible.
+        Covering a spouse or kids is your cost on either plan — and they may qualify for Medicaid or Obamacare.
+        Either way, <span class="text-teal-400 font-semibold">your own coverage can be completely free.</span>
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============== FOOTER ============== -->
+<footer class="fixed bottom-0 left-0 right-0 z-40 glass-strong border-t border-slate-800/60 no-print">
+  <div class="max-w-6xl mx-auto px-4 md:px-6 py-2.5 flex items-center justify-between text-[10px] tracking-widest uppercase text-slate-500">
+    <span>Sundrop Health Benefits · Plans start Aug 1, 2026</span>
+    <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-teal-400 inline-block"></span> Estimates · Confirm before enrolling</span>
+  </div>
+</footer>
+
+<script>
+  // ---- Scroll progress ----
+  var progress = document.getElementById('progress');
+  function onScroll(){
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    progress.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  // ---- Scroll-spy ----
+  var links = Array.prototype.slice.call(document.querySelectorAll('.navlink'));
+  var sections = Array.prototype.slice.call(document.querySelectorAll('section[id]'));
+  function setActive(id){ links.forEach(function(l){ l.classList.toggle('active', l.getAttribute('data-nav') === id); }); }
+  var observer = new IntersectionObserver(function(entries){
+    var best = null;
+    entries.forEach(function(e){ if (e.isIntersecting && (!best || e.intersectionRatio > best.intersectionRatio)) best = e; });
+    if (best) setActive(best.target.id);
+  }, { rootMargin: '-40% 0px -55% 0px', threshold: [0,0.25,0.5,1] });
+  sections.forEach(function(s){ observer.observe(s); });
+  setActive('basics');
+
+  // ---- Age personalizer (drives all Gold / employee-only figures) ----
+  // Priority Health member rates, ZIP 48653, effective 08/01/2026.
+  var BRONZE = {18:279.63,19:288.21,20:297.09,21:306.28,22:306.28,23:306.28,24:306.28,25:307.51,26:313.63,27:320.98,28:332.93,29:342.73,30:347.63,31:354.98,32:362.33,33:366.92,34:371.82,35:374.27,36:376.72,37:379.17,38:381.62,39:386.53,40:391.43,41:398.78,42:405.82,43:415.62,44:427.87,45:442.27,46:459.42,47:478.72,48:500.77,49:522.51,50:547.02,51:571.21,52:597.86,53:624.81,54:653.91,55:683.00,56:714.55,57:746.40,58:780.40,59:797.25,60:831.24,61:860.65,62:879.94,63:904.14,64:918.84};
+  var GOLD = {18:403.94,19:416.33,20:429.16,21:442.43,22:442.43,23:442.43,24:442.43,25:444.20,26:453.05,27:463.67,28:480.92,29:495.08,30:502.16,31:512.78,32:523.39,33:530.03,34:537.11,35:540.65,36:544.19,37:547.73,38:551.27,39:558.35,40:565.43,41:576.04,42:586.22,43:600.38,44:618.07,45:638.87,46:663.65,47:691.52,48:723.37,49:754.79,50:790.18,51:825.13,52:863.62,53:902.56,54:944.59,55:986.62,56:1032.19,57:1078.20,58:1127.31,59:1151.65,60:1200.76,61:1243.23,62:1271.10,63:1306.05,64:1327.29};
+
+  function comma(n){ return n.toLocaleString('en-US'); }
+  function setTxt(id, v){ var el = document.getElementById(id); if (el) el.textContent = v; }
+
+  var slider = document.getElementById('ageSlider');
+  function applyAge(age){
+    var bronze = BRONZE[age], gold = GOLD[age];
+    var delta = Math.round(gold - bronze);
+    var bR = Math.round(bronze), gR = Math.round(gold);
+
+    // Hero + stat strip
+    setTxt('ageVal', age);
+    setTxt('heroDelta', delta);
+    setTxt('statPrice', '≈$' + delta);
+
+    // Who pays what
+    setTxt('p1Total', '$' + comma(bR));
+    setTxt('p1Sundrop', '$' + comma(bR));
+    setTxt('payTotal2', '$' + comma(gR));
+    setTxt('paySundrop2', '$' + comma(bR));
+    setTxt('payYou2', '$' + delta);
+    var sw = (bronze / gold) * 100;
+    var bs = document.getElementById('payBarSundrop'); if (bs) bs.style.width = sw.toFixed(1) + '%';
+    var by = document.getElementById('payBarYou'); if (by) by.style.width = (100 - sw).toFixed(1) + '%';
+    setTxt('payBarSundropLabel', 'Sundrop $' + comma(bR));
+    setTxt('payBarLabel', 'You ≈$' + delta);
+    setTxt('fnBronze', comma(bR));
+    setTxt('fnAge', age);
+
+    // Two-plans comparison
+    setTxt('cmpCardPrice', delta);
+    setTxt('cmpCardAge', age);
+    setTxt('cmpYou', delta);
+    setTxt('cmpAge', age);
+
+    // Scenario A (single, employee-only)
+    var yr = delta * 12;
+    var total = yr + 40;          // ~$40 of care in a healthy year
+    var save = Math.round((total - 176) / 50) * 50; // free plan all-in ≈ $176
+    setTxt('aPremMo', '~$' + delta + '/mo');
+    setTxt('aPremYr', '~$' + comma(yr));
+    setTxt('aTotal', '~$' + comma(total));
+    setTxt('aSave', '$' + comma(save));
+  }
+  if (slider){
+    slider.addEventListener('input', function(){ applyAge(parseInt(this.value, 10)); });
+    applyAge(parseInt(slider.value, 10));
+  }
+</script>
+</body>
+</html>
