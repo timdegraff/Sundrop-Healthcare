@@ -63,6 +63,7 @@
       <a href="#plans"  data-nav="plans"  class="navlink px-4 py-2 rounded-full">The 2 Plans</a>
       <a href="#exA"    data-nav="exA"    class="navlink px-4 py-2 rounded-full">Scenario A</a>
       <a href="#exB"    data-nav="exB"    class="navlink px-4 py-2 rounded-full">Scenario B</a>
+      <a href="#family" data-nav="family" class="navlink px-4 py-2 rounded-full">Family Cost</a>
     </nav>
     <!-- Sundrop Impact (board view) -->
     <div class="flex items-center gap-2 shrink-0 no-print">
@@ -279,10 +280,10 @@
         Now say you cover a <span class="text-white font-semibold">spouse and two kids</span>, and it's a <span class="text-white font-semibold">busy medical year</span>:
         a <span class="text-white">hospital birth</span>, one <span class="text-white">ER trip</span> for a kid, <span class="text-white">4 children's visits</span>, a couple of grown-up visits, and several prescriptions.
       </p>
-      <p class="text-sm text-slate-400 mt-3 leading-relaxed">Remember: <span class="p1-text font-semibold">your own coverage is still free</span> on Plan 1. The big numbers below come from <span class="text-white">covering your whole family</span> — adding a spouse and kids is paid by you, at the per-person rate, on <span class="text-white">either</span> plan. <span class="text-slate-500">This family example uses a ~30-year-old; the age slider up top doesn't change it, since your spouse and kids are priced at their own ages.</span></p>
+      <p class="text-sm text-slate-400 mt-3 leading-relaxed">Remember: <span class="p1-text font-semibold">your own coverage is still free</span> on Plan 1. The big premium numbers below come from <span class="text-white">covering your whole family</span> — adding a spouse and kids is paid by you, at the per-person rate, on <span class="text-white">either</span> plan. <span class="text-slate-500">This example is <span class="text-slate-300">you at your slider age</span>, plus a spouse age 40 and two kids (ages 4 and 6). Move the slider to change your Gold buy-up; price your exact family in the estimator below.</span></p>
     </div>
 
-    <h3 class="text-xl md:text-2xl font-bold text-white mb-4">What the family pays at the doctor &amp; hospital</h3>
+    <h3 class="text-xl md:text-2xl font-bold text-white mb-4">What you pay, all year</h3>
     <div class="glass rounded-3xl overflow-hidden mb-3">
       <div class="overflow-x-auto">
         <table class="w-full text-sm min-w-[600px]">
@@ -294,6 +295,7 @@
             </tr>
           </thead>
           <tbody class="text-slate-300">
+            <tr class="border-b border-slate-800/50"><td class="px-6 py-3.5">Monthly premium (self + spouse + 2 kids*)</td><td class="text-right px-4 p1-soft p1-text font-semibold" id="bPremMoFree">~$860/mo</td><td class="text-right px-6 p2-soft" id="bPremMoGold">~$1,416/mo</td></tr>
             <tr class="border-b border-slate-800/50"><td class="px-6 py-3.5">Having the baby (hospital)</td><td class="text-right px-4 p1-soft font-semibold">$8,000</td><td class="text-right px-6 p2-soft font-semibold" id="bBirth">~$1,200</td></tr>
             <tr class="border-b border-slate-800/50"><td class="px-6 py-3.5">Newborn care</td><td class="text-right px-4 text-emerald-400">Included</td><td class="text-right px-6 text-emerald-400">Included</td></tr>
             <tr class="border-b border-slate-800/50"><td class="px-6 py-3.5">1 ER trip (child)</td><td class="text-right px-4 p1-soft">~$2,000</td><td class="text-right px-6 p2-soft" id="bEr">$40</td></tr>
@@ -301,46 +303,63 @@
             <tr class="border-b border-slate-800/50"><td class="px-6 py-3.5">2 adult doctor visits</td><td class="text-right px-4 p1-soft">~$280</td><td class="text-right px-6 p2-soft" id="bAdult">$60</td></tr>
             <tr class="border-b border-slate-800/50"><td class="px-6 py-3.5">1 specialist visit</td><td class="text-right px-4 p1-soft">~$250</td><td class="text-right px-6 p2-soft" id="bSpec">$70</td></tr>
             <tr class="border-b border-slate-800/50"><td class="px-6 py-3.5">8 generic + 2 brand drugs</td><td class="text-right px-4 p1-soft">~$744</td><td class="text-right px-6 p2-soft" id="bMeds">$120</td></tr>
-            <tr class="bg-slate-950/60 text-white"><td class="px-6 py-4 font-bold text-base">Doctor/hospital costs this year</td><td class="text-right px-4 p1-text font-extrabold text-xl">~$11,834</td><td class="text-right px-6 p2-text font-extrabold text-xl" id="bCare">~$1,610</td></tr>
+            <tr class="border-b border-slate-800/50"><td class="px-6 py-3.5 text-slate-400">Doctor &amp; hospital costs for the year</td><td class="text-right px-4 text-slate-400">~$11,834</td><td class="text-right px-6 text-slate-400" id="bCare">~$1,610</td></tr>
+            <tr class="border-b border-slate-800/50"><td class="px-6 py-3.5 text-slate-400">Premium for the year</td><td class="text-right px-4 text-slate-400" id="bPremYrFree">~$10,320</td><td class="text-right px-6 text-slate-400" id="bPremYrGold">~$16,992</td></tr>
+            <tr class="bg-slate-950/60 text-white"><td class="px-6 py-4 font-bold text-base">Total you pay this year</td><td class="text-right px-4 p1-text font-extrabold text-xl" id="bTotalFree">~$22,154</td><td class="text-right px-6 p2-text font-extrabold text-xl" id="bTotalGold">~$18,602</td></tr>
           </tbody>
         </table>
       </div>
     </div>
-    <p class="text-xs text-slate-500 mb-8">The baby blows past Plan 1's deductible. On Gold G121, the hospital birth runs through its low <span class="text-slate-300">$1,200 deductible</span> and then <span class="text-slate-300">0% coinsurance</span> — so even a C-section or complications stay near $1,200, and ER/visits are small copays. Estimates of negotiated prices.</p>
+    <p class="text-xs text-slate-500 mb-8">*Premium example assumes a spouse age 40 and two kids (ages 4 and 6); your own age (slider up top) sets the Gold buy-up. Adjust any of these in the estimator below.</p>
+  </section>
 
-    <!-- All-in -->
-    <h3 class="text-xl md:text-2xl font-bold text-white mb-2">The all-in cost — premium <span class="text-slate-500 font-normal">plus</span> care</h3>
-    <p class="text-sm text-slate-400 mb-4 max-w-3xl font-light">If you cover your whole family on one plan, here's the total for a big year:</p>
-    <div class="glass rounded-3xl overflow-hidden mb-3">
-      <div class="overflow-x-auto">
-        <table class="w-full text-sm min-w-[600px]">
-          <thead>
-            <tr class="text-xs tracking-widest uppercase text-slate-500 border-b border-slate-800">
-              <th class="text-left font-semibold px-6 py-4">Whole family on…</th>
-              <th class="text-right font-semibold px-4 py-4">Premium (you + family)</th>
-              <th class="text-right font-semibold px-4 py-4">Care costs</th>
-              <th class="text-right font-bold px-6 py-4">All-in / year</th>
-            </tr>
-          </thead>
-          <tbody class="text-slate-300">
-            <tr class="border-b border-slate-800/50"><td class="px-6 py-4"><span class="p1-text font-semibold">Plan 1 · Free Bronze</span></td><td class="text-right px-4">~$9,795</td><td class="text-right px-4">~$11,834</td><td class="text-right px-6 font-bold text-rose-400 text-base">~$21,629</td></tr>
-            <tr class="bg-slate-950/40"><td class="px-6 py-4"><span class="p2-text font-semibold">Plan 2 · Gold G121</span></td><td class="text-right px-4" id="allPrem">~$16,003</td><td class="text-right px-4" id="allCare">~$1,610</td><td class="text-right px-6 font-extrabold text-emerald-400 text-base" id="allIn">~$17,613</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <p class="text-xs text-slate-500 mb-8">Sundrop covers <span class="text-slate-300">your own premium only</span>; adding a spouse + 2 kids is your cost on either plan. In this birth year, Gold saves the family roughly <span class="text-white" id="savings">~$4,000</span> versus the free Bronze plan — because Gold's small copays and 0% coinsurance offset its higher premium.</p>
+  <!-- ============================================================= -->
+  <!-- FAMILY COST ESTIMATOR -->
+  <!-- ============================================================= -->
+  <section id="family" class="py-10 border-t border-slate-800/40">
+    <div class="eyebrow text-xs uppercase text-slate-500 font-bold mb-3">Estimate your cost</div>
+    <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-5">Add your spouse &amp; kids</h2>
+    <p class="text-slate-400 text-base md:text-lg max-w-3xl mb-7 font-light">
+      Add your spouse and kids to see your real <span class="text-white">monthly cost on both plans</span>. Your own coverage is <span class="p1-text font-medium">free</span> on Basic; on Gold you pay the age-based buy-up. Each dependent is priced by their own age.
+    </p>
 
-    <!-- Family facts (neutral) -->
-    <div class="glass rounded-3xl p-6 md:p-8">
-      <div class="eyebrow text-xs uppercase text-slate-500 font-bold mb-4">Good to know — for families</div>
-      <ul class="space-y-3.5 text-base text-slate-300">
-        <li class="flex gap-3"><span class="p1-text">•</span><span>Your <span class="text-white font-semibold">kids</span> may qualify for free or low-cost Michigan coverage (Medicaid / MIChild), depending on household income.</span></li>
-        <li class="flex gap-3"><span class="p1-text">•</span><span>Your <span class="text-white font-semibold">spouse</span> may be able to buy a discounted Obamacare plan (the old "family glitch" was fixed in 2023).</span></li>
-        <li class="flex gap-3"><span class="p1-text">•</span><span>On <span class="p2-text font-semibold">Gold G121</span>, a hospital birth runs through its $1,200 deductible with 0% coinsurance after. On the <span class="p1-text font-semibold">free Bronze plan</span> it runs to the $8,000 deductible.</span></li>
-      </ul>
-      <p class="text-xs text-slate-500 mt-5">Every family is different — confirm eligibility at HealthCare.gov or Michigan's MI Bridges. Figures use 2026 guidelines and are estimates.</p>
+    <div class="glass rounded-3xl p-6 md:p-8 max-w-3xl">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="text-[11px] uppercase tracking-widest text-slate-500 border-b border-slate-800">
+            <th class="text-left font-semibold py-3">Who</th>
+            <th class="text-right font-bold py-3 p1-text">Free Basic /mo</th>
+            <th class="text-right font-bold py-3 p2-text">Gold /mo</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-300">
+          <tr class="border-b border-slate-800/50">
+            <td class="py-4">You <span class="text-slate-500 text-sm">(age <span id="famYouAge">40</span>, set by slider up top)</span></td>
+            <td class="py-4 text-right font-semibold text-slate-200" id="famYouFree">$0</td>
+            <td class="py-4 text-right font-semibold text-slate-200" id="famYouGold">$0</td>
+          </tr>
+          <tr class="border-b border-slate-800/50">
+            <td class="py-4"><label class="flex items-center gap-2 text-slate-300 cursor-pointer"><input type="checkbox" id="famSpouse" class="famChk w-4 h-4"> Spouse <span class="text-slate-500 text-sm flex items-center gap-1">age <input type="number" id="famSpouseAge" min="18" max="64" value="40" class="famNum w-14"></span></label></td>
+            <td class="py-4 text-right text-slate-400" id="famSpouseFree">—</td>
+            <td class="py-4 text-right text-slate-400" id="famSpouseGold">—</td>
+          </tr>
+        </tbody>
+        <tbody id="famKids" class="text-slate-300"></tbody>
+        <tfoot>
+          <tr><td colspan="3" class="py-3 border-b border-slate-800/50"><button type="button" id="famAddKid" class="text-sm font-semibold p2-text hover:underline">+ Add a child</button><span id="famKidsEmpty" class="text-sm text-slate-600 ml-3">No children added.</span></td></tr>
+          <tr>
+            <td class="pt-5 text-lg font-bold text-white">Your total</td>
+            <td class="pt-5 text-right"><span class="text-2xl font-extrabold p1-text" id="famTotalFree">$0</span><span class="block text-xs text-slate-500" id="famTotalFreeYr">$0/yr</span></td>
+            <td class="pt-5 text-right"><span class="text-2xl font-extrabold p2-text" id="famTotalGold">$0</span><span class="block text-xs text-slate-500" id="famTotalGoldYr">$0/yr</span></td>
+          </tr>
+        </tfoot>
+      </table>
     </div>
+    <p class="text-xs text-slate-500 mt-4 max-w-3xl"><span class="text-slate-400">How this works:</span> on <span class="p1-text">Free Basic</span> your own premium is $0 and you pay each dependent's Bronze premium; on <span class="p2-text">Gold</span> you pay your age-based buy-up plus each dependent's Gold premium. Per ACA rules, only the three oldest children under 21 are charged. Rates are 8/1/2026 age-banded premiums — estimates; care costs are separate.</p>
+    <style>
+      .famChk{ accent-color:#f59e0b; }
+      .famNum, .famKidAge{ background:#0b0f1a; border:1px solid #334155; border-radius:8px; padding:4px 8px; color:#e2e8f0; }
+    </style>
   </section>
 
   <!-- ============== CLOSING ============== -->
@@ -391,8 +410,8 @@
 
   // ---- Age personalizer (drives all Gold / employee-only figures) ----
   // Priority Health member rates, ZIP 48653, effective 08/01/2026.
-  var BRONZE = {18:279.63,19:288.21,20:297.09,21:306.28,22:306.28,23:306.28,24:306.28,25:307.51,26:313.63,27:320.98,28:332.93,29:342.73,30:347.63,31:354.98,32:362.33,33:366.92,34:371.82,35:374.27,36:376.72,37:379.17,38:381.62,39:386.53,40:391.43,41:398.78,42:405.82,43:415.62,44:427.87,45:442.27,46:459.42,47:478.72,48:500.77,49:522.51,50:547.02,51:571.21,52:597.86,53:624.81,54:653.91,55:683.00,56:714.55,57:746.40,58:780.40,59:797.25,60:831.24,61:860.65,62:879.94,63:904.14,64:918.84};
-  var GOLD = {18:403.94,19:416.33,20:429.16,21:442.43,22:442.43,23:442.43,24:442.43,25:444.20,26:453.05,27:463.67,28:480.92,29:495.08,30:502.16,31:512.78,32:523.39,33:530.03,34:537.11,35:540.65,36:544.19,37:547.73,38:551.27,39:558.35,40:565.43,41:576.04,42:586.22,43:600.38,44:618.07,45:638.87,46:663.65,47:691.52,48:723.37,49:754.79,50:790.18,51:825.13,52:863.62,53:902.56,54:944.59,55:986.62,56:1032.19,57:1078.20,58:1127.31,59:1151.65,60:1200.76,61:1243.23,62:1271.10,63:1306.05,64:1327.29};
+  var BRONZE = {15:255.13,16:263.09,17:271.06,18:279.63,19:288.21,20:297.09,21:306.28,22:306.28,23:306.28,24:306.28,25:307.51,26:313.63,27:320.98,28:332.93,29:342.73,30:347.63,31:354.98,32:362.33,33:366.92,34:371.82,35:374.27,36:376.72,37:379.17,38:381.62,39:386.53,40:391.43,41:398.78,42:405.82,43:415.62,44:427.87,45:442.27,46:459.42,47:478.72,48:500.77,49:522.51,50:547.02,51:571.21,52:597.86,53:624.81,54:653.91,55:683.00,56:714.55,57:746.40,58:780.40,59:797.25,60:831.24,61:860.65,62:879.94,63:904.14,64:918.84};
+  var GOLD = {15:368.54,16:380.05,17:391.55,18:403.94,19:416.33,20:429.16,21:442.43,22:442.43,23:442.43,24:442.43,25:444.20,26:453.05,27:463.67,28:480.92,29:495.08,30:502.16,31:512.78,32:523.39,33:530.03,34:537.11,35:540.65,36:544.19,37:547.73,38:551.27,39:558.35,40:565.43,41:576.04,42:586.22,43:600.38,44:618.07,45:638.87,46:663.65,47:691.52,48:723.37,49:754.79,50:790.18,51:825.13,52:863.62,53:902.56,54:944.59,55:986.62,56:1032.19,57:1078.20,58:1127.31,59:1151.65,60:1200.76,61:1243.23,62:1271.10,63:1306.05,64:1327.29};
 
   function comma(n){ return n.toLocaleString('en-US'); }
   function setTxt(id, v){ var el = document.getElementById(id); if (el) el.textContent = v; }
@@ -436,10 +455,122 @@
     setTxt('aPremYr', '~$' + comma(yr));
     setTxt('aTotal', '~$' + comma(total));
     setTxt('aSave', '$' + comma(save));
+
+    // Scenario B (family: you at slider age + spouse age 40 + 2 kids ages 4 & 6)
+    var kidFree = 234.30, kidGold = 338.46; // child rate, ages 0–14
+    var spBronze = BRONZE[40], spGold = GOLD[40]; // spouse pinned at 40 in this example
+    var bFreeMo = Math.round(spBronze + 2 * kidFree);        // you $0 + spouse (bronze) + 2 kids
+    var bGoldMo = Math.round(delta + spGold + 2 * kidGold);  // you buy-up + spouse (gold) + 2 kids
+    var bCareFree = 11834, bCareGold = 1610;
+    setTxt('bPremMoFree', '~$' + comma(bFreeMo) + '/mo');
+    setTxt('bPremMoGold', '~$' + comma(bGoldMo) + '/mo');
+    setTxt('bPremYrFree', '~$' + comma(bFreeMo * 12));
+    setTxt('bPremYrGold', '~$' + comma(bGoldMo * 12));
+    setTxt('bTotalFree', '~$' + comma(bFreeMo * 12 + bCareFree));
+    setTxt('bTotalGold', '~$' + comma(bGoldMo * 12 + bCareGold));
+
+    if (typeof renderFamily === 'function') renderFamily();
   }
   if (slider){
     slider.addEventListener('input', function(){ applyAge(parseInt(this.value, 10)); });
     applyAge(parseInt(slider.value, 10));
+  }
+
+  // ---- Family cost estimator ----
+  var CHILD = { free: 234.30, gold: 338.46 }; // ages 0–14
+  function memberRate(plan, age){
+    age = Math.max(0, Math.min(64, age || 0));
+    if (age <= 14) return plan === 'gold' ? CHILD.gold : CHILD.free;
+    return (plan === 'gold' ? GOLD : BRONZE)[age];
+  }
+
+  var famSpouseOn = true;      // preset to match Scenario B example
+  var famKids = [4, 6];        // ages 4 and 6, preset to match Scenario B example
+
+  var elSpouse = document.getElementById('famSpouse');
+  var elSpouseAge = document.getElementById('famSpouseAge');
+  var elKids = document.getElementById('famKids');
+  var elKidsEmpty = document.getElementById('famKidsEmpty');
+  var elAddKid = document.getElementById('famAddKid');
+
+  function renderKidRows(){
+    if (!elKids) return;
+    elKids.innerHTML = '';
+    famKids.forEach(function(age, i){
+      var tr = document.createElement('tr');
+      tr.className = 'border-b border-slate-800/50';
+      tr.innerHTML =
+        '<td class="py-3 text-slate-400 text-sm">Child age '
+        + '<input type="number" min="0" max="25" value="' + age + '" class="famKidAge w-14" data-i="' + i + '"> '
+        + '<button type="button" class="famKidDel text-slate-500 hover:text-rose-400 ml-1" data-i="' + i + '">✕</button></td>'
+        + '<td class="py-3 text-right famKidFree" data-i="' + i + '">$0</td>'
+        + '<td class="py-3 text-right famKidGold" data-i="' + i + '">$0</td>';
+      elKids.appendChild(tr);
+    });
+    if (elKidsEmpty) elKidsEmpty.style.display = famKids.length ? 'none' : 'inline';
+  }
+
+  function renderFamily(){
+    if (!elKids) return; // section not present
+    var empAge = slider ? parseInt(slider.value, 10) : 40;
+    setTxt('famYouAge', empAge);
+
+    // you: free = $0; gold = age-based buy-up
+    var youGold = Math.round(GOLD[empAge] - BRONZE[empAge]);
+    setTxt('famYouFree', '$0');
+    setTxt('famYouGold', '$' + comma(youGold));
+
+    // spouse
+    var spFree = 0, spGold = 0;
+    if (elSpouse) elSpouse.checked = famSpouseOn;
+    if (elSpouseAge) elSpouseAge.disabled = !famSpouseOn;
+    if (famSpouseOn){
+      var sa = parseInt(elSpouseAge.value, 10);
+      spFree = memberRate('free', sa); spGold = memberRate('gold', sa);
+    }
+    setTxt('famSpouseFree', famSpouseOn ? '$' + comma(Math.round(spFree)) : '—');
+    setTxt('famSpouseGold', famSpouseOn ? '$' + comma(Math.round(spGold)) : '—');
+
+    // kids — only the 3 oldest under 21 are charged (same set for both plans)
+    var under21 = [];
+    famKids.forEach(function(a, i){ if (a < 21) under21.push(i); });
+    under21.sort(function(x, y){ return famKids[y] - famKids[x]; });
+    var freeKid = {};
+    under21.slice(3).forEach(function(i){ freeKid[i] = true; });
+
+    var kidsFree = 0, kidsGold = 0;
+    famKids.forEach(function(a, i){
+      var f = freeKid[i] ? 0 : memberRate('free', a);
+      var g = freeKid[i] ? 0 : memberRate('gold', a);
+      kidsFree += f; kidsGold += g;
+      var cf = elKids.querySelector('.famKidFree[data-i="' + i + '"]');
+      var cg = elKids.querySelector('.famKidGold[data-i="' + i + '"]');
+      if (cf) cf.textContent = freeKid[i] ? 'free' : '$' + comma(Math.round(f));
+      if (cg) cg.textContent = freeKid[i] ? 'free' : '$' + comma(Math.round(g));
+    });
+
+    var totFree = Math.round(0 + spFree + kidsFree);
+    var totGold = Math.round(youGold + spGold + kidsGold);
+    setTxt('famTotalFree', '$' + comma(totFree));
+    setTxt('famTotalGold', '$' + comma(totGold));
+    setTxt('famTotalFreeYr', '$' + comma(totFree * 12) + '/yr');
+    setTxt('famTotalGoldYr', '$' + comma(totGold * 12) + '/yr');
+  }
+
+  if (elKids){
+    elSpouse.addEventListener('change', function(){ famSpouseOn = this.checked; renderFamily(); });
+    elSpouseAge.addEventListener('input', renderFamily);
+    elAddKid.addEventListener('click', function(){ famKids.push(5); renderKidRows(); renderFamily(); });
+    elKids.addEventListener('input', function(e){
+      var t = e.target;
+      if (t.classList.contains('famKidAge')){ famKids[+t.getAttribute('data-i')] = parseInt(t.value, 10) || 0; renderFamily(); }
+    });
+    elKids.addEventListener('click', function(e){
+      var t = e.target;
+      if (t.classList.contains('famKidDel')){ famKids.splice(+t.getAttribute('data-i'), 1); renderKidRows(); renderFamily(); }
+    });
+    renderKidRows();
+    renderFamily();
   }
 </script>
 </body>
